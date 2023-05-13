@@ -3,6 +3,11 @@
 import { styled } from "styled-components";
 
 const LayoutContainer = styled.div`
+  background-color: #fec;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   position: absolute;
   top: 0;
   right: 0;

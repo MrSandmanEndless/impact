@@ -13,7 +13,6 @@ const BeerCardContainer = styled.div`
   &:hover > .beer-card-body {
     background-color: #fb5;
     height: auto;
-    transition: height 10s ease-in;
     padding: 0.5rem;
   }
 `;

@@ -1,12 +1,8 @@
 import type { GenericComponentType } from "@/model";
 import { styled } from "styled-components";
 import { ButtonAtom } from "@/components/atoms";
-
-const HeaderContainer = styled.header`
-  background-color: #fb5;
-  color: #000;
-  height: 30vh;
-`;
+import { HeaderForm } from "./HeaderForm";
+import { useBeerPanelContext } from "@/providers";
 
 const HeaderContainerBar = styled.div`
   background-color: #fff;
@@ -26,12 +22,16 @@ const HeaderTitle = styled.h1`
 `;
 
 const Header: GenericComponentType = () => {
+  const { open, setOpen } = useBeerPanelContext();
+
   return (
     <div>
-      <HeaderContainer>aaa</HeaderContainer>
+      <HeaderForm />
       <HeaderContainerBar>
         <HeaderTitle>Cellar</HeaderTitle>
-        <ButtonAtom>+</ButtonAtom>
+        <ButtonAtom variant="add" open={open} onClick={() => setOpen(!open)}>
+          +
+        </ButtonAtom>
       </HeaderContainerBar>
     </div>
   );

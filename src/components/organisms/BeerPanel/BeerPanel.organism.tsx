@@ -1,5 +1,6 @@
 import { BeerMolecule } from "@/components/molecules/Beer";
 import type { GenericComponentType } from "@/model";
+import { useBeerPanelContext } from "@/providers";
 import { styled } from "styled-components";
 
 const BeerListContainer = styled.main`
@@ -12,15 +13,12 @@ const BeerListContainer = styled.main`
 `;
 
 const BeerPanel: GenericComponentType = () => {
+  const { beers } = useBeerPanelContext();
   return (
     <BeerListContainer>
-      {Array.from({ length: 19 }, (_, i) => (
-        <BeerMolecule
-          amount={1}
-          description="adsmçksdm çasldmaslçdmç çaslmd aslmdlçam çlasmdlasmçldmasl mdaslçmd çlasmd lçasmd aslçdm asdkmasdmkasdmkasm adsmçksdm çasldmaslçdmç çaslmd aslmdlçam çlasmdlasmçldmasl mdaslçmd çlasmd lçasmd aslçdm asdkmasdmkasdmkasm"
-          key={i}
-        >
-          Beer {i}
+      {beers.map(({ amount, description, name }, index) => (
+        <BeerMolecule key={index} amount={amount} description={description}>
+          {name}
         </BeerMolecule>
       ))}
     </BeerListContainer>
